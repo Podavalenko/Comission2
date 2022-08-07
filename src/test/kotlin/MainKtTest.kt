@@ -6,7 +6,7 @@ import org.junit.Assert.*
 class MainKtTest {
 
     @Test
-    fun count_of_commission_right() {
+    fun count_of_commission() {
         val cardType = VISA
         val monthAmount: Long = 1000
         val sumOfTransaction: Long = 100
@@ -188,7 +188,17 @@ class MainKtTest {
         )
         assertEquals("Превышена максимальная сумма перевода!", result)
     }
+    @Test
+    fun Visa_Mir_commissionCount_Too_Much_Day_fail() {
+        val monthAmount: Long = 500
+        val sumOfTransaction: Long = 25_000_000
 
+        val result = commissionVisaMir(
+            transactionAmount = sumOfTransaction,
+            previousAmountMonthly = monthAmount
+        )
+        assertEquals("Слишком большая сумма перевода!", result)
+    }
     @Test
     fun Visa_Mir_commissionCount_Count() {
         val monthAmount: Long = 5000
