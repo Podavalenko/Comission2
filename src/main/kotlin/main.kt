@@ -1,3 +1,5 @@
+import org.junit.Test
+
 const val VK_PAY = "VK_PAY"
 const val MAESTRO = "Maestro"
 const val MASTERCARD = "Mastercard"
@@ -9,6 +11,7 @@ const val LIMIT_CARD_DAYLY = 15_000_000
 const val LIMIT_VK_PAY_DAYLY = 1_500_000
 const val LIMIT_VK_PAY_MONTHLY = 4_000_000
 const val MIN_COMMISSION_VISA_MIR = 35_00
+
 
 fun commissionCountMaestroMastercard(transactionAmount: Long, previousAmountMonthly: Long): String {
     var toCount = ((transactionAmount / 100 * 0.6) + 2_000).toInt()
